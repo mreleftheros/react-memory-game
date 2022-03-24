@@ -1,0 +1,17 @@
+.btn {
+  display: block;
+  min-width: 20rem;
+  padding: 0.3rem;
+  background: orangered;
+  color: #eee;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: solid;
+  font-size: 1.8rem;
+  margin: 0.5rem auto;
+  transition: transform 0.15s ease-in-out;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}

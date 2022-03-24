@@ -1,0 +1,38 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  width: 8rem;
+  height: 9rem;
+  background: url('../../assets/card-out.jpg') no-repeat center;
+  background-size: cover;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: solid 0.3rem #777;
+  cursor: pointer;
+
+  &-content {
+    display: none;
+    font-size: 5rem;
+    text-shadow: 0px 0px 5px rgb(150, 148, 32);
+    user-select: none;
+  }
+
+  &-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    background-color: #222;
+    width: 8rem;
+    height: 9rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    border: solid 0.3rem #777;
+  }
+
+  &-open &-content {
+    display: block;
+  }
+}

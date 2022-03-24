@@ -1,0 +1,28 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.4);
+
+  &-box {
+    position: relative;
+    width: 40vw;
+    height: 60vh;
+    border: orangered solid 0.3rem;
+    border-radius: 0.5rem;
+  }
+
+  &-close {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    text-transform: uppercase;
+  }
+}
