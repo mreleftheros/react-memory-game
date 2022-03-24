@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { getCards } from '../data/cards';
 import Card from './Card';
+import Round from './Round';
 
 const CardList = ({ level: { cardSum } }) => {
   const [isPlay, setIsPlay] = useState(false);
   const [cards, setCards] = useState([]);
+  const [round, setRound] = useState(0);
   const [openedCards, setOpenedCards] = useState([]);
   const idRef = useRef(0);
 
@@ -28,10 +30,12 @@ const CardList = ({ level: { cardSum } }) => {
     let isMatch = checkMatch();
     let timer;
 
+    setRound(prev => prev + 1);
+
     if (isMatch) {
       matchCards();
       return setIsPlay(true);
-    } 
+    }
 
     timer = setTimeout(() => {
       closeCards();
@@ -82,14 +86,17 @@ const CardList = ({ level: { cardSum } }) => {
   };
 
   return (
-    <ul
-      className={`card-list${
-        cardSum === 12 ? '-big' : cardSum === 10 ? '-medium' : ''
-      }`}
-    >
-      {!!cards.length &&
-        cards.map(card => <Card key={card.id} {...card} onOpen={openCard} />)}
-    </ul>
+    <>
+      <ul
+        className={`card-list${
+          cardSum === 12 ? '-big' : cardSum === 10 ? '-medium' : ''
+        }`}
+      >
+        {!!cards.length &&
+          cards.map(card => <Card key={card.id} {...card} onOpen={openCard} />)}
+      </ul>
+      <Round round={round} />
+    </>
   );
 };
 
